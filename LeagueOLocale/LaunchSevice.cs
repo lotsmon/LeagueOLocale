@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows;
 
 namespace LeagueOLocale
 {
@@ -27,14 +28,16 @@ namespace LeagueOLocale
             return result;
         }
 
-        private HashSet<string> proc = new HashSet<string> { "LeagueClient", "RiotClientServices" };
+        private string[] proc = { "LeagueClient", "RiotClientServices" };
 
         private void Close()
         {
-            foreach (var leagueProcessName in proc)
-                foreach (var process in Process.GetProcesses())
-                    if (process.ProcessName.ToLower().Contains(leagueProcessName.ToLower()))
-                        process.Kill();
+            for (int i = 0; i < proc.Length; i++)
+            {
+                Process[] process = Process.GetProcessesByName(proc[i]);
+                if (process.Length <= 0) return;
+                process[0].Kill();
+            }
         }
     }
 }

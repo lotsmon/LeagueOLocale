@@ -12,21 +12,22 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <Border CornerRadius="5" Background="{TemplateBinding Background}">
                             <Grid>
-                                <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="White" HorizontalAlignment="Center" Margin="0,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Stroke="Transparent" StrokeThickness="2" Fill="White" HorizontalAlignment="Center" Margin="0,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
                             </Grid>
                         </Border>
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#FFD13B3F" />
-                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="Transparent" />
+                                <Setter TargetName="PathIcon" Property="Stroke" Value="White"/>
                             </Trigger>
 
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="OrangeRed" />
-                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Stroke" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -39,7 +40,6 @@
             <TextBlock VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold">Chose language</TextBlock>
             <ComboBox x:Name="langcm" Width="100" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
             <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="100" Margin="0,10,0,0" Click="Button_Click" Background="#FFD1363A"/>
-            <TextBlock x:Name="state" VerticalAlignment="Top" TextAlignment="Center" FontSize="10"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>

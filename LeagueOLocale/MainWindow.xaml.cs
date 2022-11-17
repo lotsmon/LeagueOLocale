@@ -31,36 +31,24 @@ namespace LeagueOLocale
         {
             InitializeComponent();
             langcm.ItemsSource = typeof(Locale).GetEnumValues();
-            if (WokingPath)
+            if(WokingPath is not null)
             {
                 launchService = new LaunchService(_leaugePath);
             }
-            else
-            {
-                FileDialog fileDialog = new OpenFileDialog();
-                fileDialog.Filter = "LeagueClient.exe .exe|*.exe";
-                bool? result = fileDialog.ShowDialog();
-
-                if (fileDialog.FileName.Split('\\').Last() != "LeagueClient.exe" && result == true)
-                {
-                    _leaugePath = fileDialog.FileName;
-                }
-            }
         }
 
-        private bool WokingPath
+        private string WokingPath
         {
             get
             {
-                bool work = false;
-                if (File.Exists(_leaugePath)) return true;
+                string str = null;
                 if (Registry.GetValue(_registryKey, _registryName, null) is string registryValue)
                 {
-                    _leaugePath = registryValue;
-                    return true;
+                    str = registryValue + "/" + "/" + "LeagueClient.exe";
                 }
 
-                return work;
+                _leaugePath = str;
+                return str;
             }
         }
 
@@ -70,7 +58,6 @@ namespace LeagueOLocale
                 return;
 
             var s = launchService.Launch((Locale)langcm.SelectedIndex);
-            if (s) state.Text = "Starting...";
         }
     }
 }

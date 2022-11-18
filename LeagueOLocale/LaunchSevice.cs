@@ -35,7 +35,7 @@ namespace LeagueOLocale
             for (int i = 0; i < proc.Length; i++)
             {
                 Process[] process = Process.GetProcessesByName(proc[i]);
-                if (process.Length <= 0) return;
+                if (process.Length < 1) return;
                 process[0].Kill();
             }
         }

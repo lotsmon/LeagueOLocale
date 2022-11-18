@@ -52,7 +52,7 @@ namespace LeagueOLocale
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LaunchButton_Click(object sender, RoutedEventArgs e)
         {
             if (langcm.SelectedIndex < 0)
                 return;

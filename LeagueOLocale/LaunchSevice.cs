@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 
 namespace LeagueOLocale
 {
     public class LaunchService
     {
-        private string PathLol;
-
-        public LaunchService(string pathLol)
-        {
-            PathLol = pathLol;
-        }
+        public string PathLol = "";
 
         public bool Launch(Locale locale)
         {
@@ -28,16 +24,15 @@ namespace LeagueOLocale
             return result;
         }
 
-        private string[] proc = { "LeagueClient", "RiotClientServices" };
+        private List<string> proc = new List<string> { "LeagueClient", "RiotClientServices" };
 
         private void Close()
         {
-            for (int i = 0; i < proc.Length; i++)
-            {
-                Process[] process = Process.GetProcessesByName(proc[i]);
-                if (process.Length < 1) return;
-                process[0].Kill();
-            }
+            proc.ForEach(name => {
+                Process.GetProcessesByName(name).ToList().ForEach(p => {
+                    p.Kill(); 
+                });
+            });
         }
     }
 }

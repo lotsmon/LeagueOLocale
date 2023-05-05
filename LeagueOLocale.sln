@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueOLocale", "LeagueOLocale\LeagueOLocale.csproj", "{2C5C290A-ADB1-4A0A-9C7F-BE20C396E360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueOLocale", "LeagueOLocale\LeagueOLocale.csproj", "{2C5C290A-ADB1-4A0A-9C7F-BE20C396E360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixHotLaunch", "FixHotLaunch\FixHotLaunch.csproj", "{96E73175-8C3F-4CAA-BBE9-5931DCCD6A86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2C5C290A-ADB1-4A0A-9C7F-BE20C396E360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C5C290A-ADB1-4A0A-9C7F-BE20C396E360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C5C290A-ADB1-4A0A-9C7F-BE20C396E360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E73175-8C3F-4CAA-BBE9-5931DCCD6A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E73175-8C3F-4CAA-BBE9-5931DCCD6A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E73175-8C3F-4CAA-BBE9-5931DCCD6A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E73175-8C3F-4CAA-BBE9-5931DCCD6A86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

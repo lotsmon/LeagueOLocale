@@ -25,7 +25,7 @@ namespace LeagueOLocale
         private string _leaugePath = @"C:\Riot Games\League of Legends\LeagueClient.exe";
         private const string _registryKey = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\Riot Game league_of_legends.live";
         private const string _registryName = "InstallLocation";
-        LaunchService launchService;
+        private LaunchService launchService = new LaunchService();
 
         public MainWindow()
         {
@@ -33,7 +33,7 @@ namespace LeagueOLocale
             langcm.ItemsSource = typeof(Locale).GetEnumValues();
             if(WokingPath is not null)
             {
-                launchService = new LaunchService(_leaugePath);
+                launchService.PathLol = _leaugePath;
             }
         }
 
@@ -41,7 +41,7 @@ namespace LeagueOLocale
         {
             get
             {
-                string str = null;
+                string str = "";
                 if (Registry.GetValue(_registryKey, _registryName, null) is string registryValue)
                 {
                     str = registryValue + "/" + "/" + "LeagueClient.exe";
